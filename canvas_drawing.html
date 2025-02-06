@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML5 Canvas Drawing with Dynamic Color Change">
+    <meta name="author" content="Your Name">
+    <title>HTML5 Canvas Drawing with Dynamic Color Change</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        canvas {
+            border: 2px solid #ddd;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML5 Canvas Drawing with Dynamic Color Change</h1>
+    <p>Click the button below to change the color of the shapes:</p>
+
+    <!-- Canvas for Drawing -->
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+
+    <!-- Button to Change Color -->
+    <button class="btn" onclick="changeColor()">Change Colors</button>
+
+    <script>
+        // Get the canvas and its context
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Initial colors
+        var colors = ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#9B59B6"];
+        var currentColorIndex = 0;
+
+        // Function to draw shapes on the canvas
+        function drawShapes() {
+            // Clear canvas before redrawing
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw rectangle
+            ctx.fillStyle = colors[currentColorIndex];
+            ctx.fillRect(50, 50, 150, 100);
+
+            // Draw circle
+            ctx.beginPath();
+            ctx.arc(300, 150, 50, 0, Math.PI * 2);
+            ctx.fillStyle = colors[(currentColorIndex + 1) % colors.length];
+            ctx.fill();
+
+            // Draw line
+            ctx.beginPath();
+            ctx.moveTo(450, 50);
+            ctx.lineTo(450, 200);
+            ctx.strokeStyle = colors[(currentColorIndex + 2) % colors.length];
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        }
+
+        // Call the drawShapes function initially to draw the shapes
+        drawShapes();
+
+        // Function to change color of the shapes dynamically
+        function changeColor() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            drawShapes(); // Redraw shapes with the new color
+        }
+    </script>
+
+</body>
+</html>

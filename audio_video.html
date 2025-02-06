@@ -1,0 +1,59 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adding Audio and Video in HTML5</title>
+        <style>
+            /* Responsive layout for the audio and video players */
+            .media-container {
+                text-align: center;
+                margin: 20px;
+            }
+
+            .media-container audio, .media-container video {
+                width: 100%;
+                max-width: 600px;
+                border: 2px solid #333;
+                border-radius: 10px;
+            }
+
+            /* Styling text with colors */
+            h1 {
+                color: #4CAF50; /* Green color for the main title */
+            }
+
+            h2 {
+                color: #FF6347; /* Tomato color for subheadings */
+            }
+
+            p {
+                color: #555555; /* Gray color for the paragraph text */
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Embedding Audio and Video Files</h1>
+        <p>Enjoy some background music and a video with controls below:</p>
+
+        <div class="media-container">
+            <!-- Background Music: Audio -->
+            <h2>Background Music</h2>
+            <audio controls autoplay loop>
+                <source src="audio.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="media-container">
+            <!-- Video Player with Controls -->
+            <h2>HTML5 Video Player</h2>
+            <video controls>
+                <source src="Video2.mp4" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+        </div>
+
+    </body>
+    </html>
